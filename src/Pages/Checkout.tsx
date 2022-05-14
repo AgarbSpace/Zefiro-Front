@@ -10,6 +10,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Review from '../components/Review/Review';
+import * as style from "../MUI-SX/index"
 
 const steps = ['Revisão da solicitação'];
 
@@ -63,7 +64,7 @@ export default function Checkout() {
             ) : (
               <React.Fragment>
                   <Review/>
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Box sx={style.flexEnd}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
                       Back

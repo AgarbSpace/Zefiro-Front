@@ -8,9 +8,12 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import logo from "../assets/logo/logo_size.jpg";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import * as style from "../MUI-SX/index"
 
 export default function SignIn() {
+    const navigate = useNavigate()
+
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -62,13 +65,14 @@ export default function SignIn() {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        sx={{ mt: 3, mb: 2, backgroundColor: '#0F445D' }}
+                        sx={style.signInButtonStyle}
+                        onClick = {() => navigate("/app/main")}
                     >
                         Entrar
                     </Button>
                     <Grid container justifyContent="flex-end">
                         <Grid item>
-                            <Link sx={{color: "#2E9AB4"}} component={RouterLink} to="/signUp">
+                            <Link sx={{color: "#0F445D"}} component={RouterLink} to="/signUp">
                                 Não tem uma conta? Cadastre-se!
                             </Link>
                         </Grid>

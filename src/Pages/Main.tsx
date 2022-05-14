@@ -1,22 +1,18 @@
 import { Tab, Tabs, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import { Boy, Psychology, TagFaces, ContentPasteSearch, MenuBook, Favorite} from '@mui/icons-material';
+import * as style from "../MUI-SX/index"
 
 export default function Main() {
-    const clinics = [{name: "Clínica/Hospital0",specialty: "Psicologia", distance: "1km", assessment: 4},
-    {name: "Clínica/Hospital1", specialty: "Cardiologia/Nutrição", distance: "2km", assessment: 3}, 
-    {name: "Clínica/Hospital2", specialty: "Fisioterapia", distance: "3km", assessment: 5},
-    {name: "Clínica/Hospital3", specialty: "Odontologia", distance: "4km", assessment: 4},
-    {name: "Clínica/Hospital4", specialty: "Clínica Geral", distance: "5km", assessment: 2},
-    {name: "Clínica/Hospital5", specialty: "Psicologia/Fisioterapia", distance: "6km", assessment: 4}];
+    const clinics = [{id: 1 , name: "Clínica/Hospital0",specialty: "Psicologia", distance: "1km", assessment: 4},
+    {id: 2 ,name: "Clínica/Hospital1", specialty: "Cardiologia/Nutrição", distance: "2km", assessment: 3}, 
+    {id: 3 ,name: "Clínica/Hospital2", specialty: "Fisioterapia", distance: "3km", assessment: 5},
+    {id: 4 ,name: "Clínica/Hospital3", specialty: "Odontologia", distance: "4km", assessment: 4},
+    {id: 5 ,name: "Clínica/Hospital4", specialty: "Clínica Geral", distance: "5km", assessment: 2},
+    {id: 6 ,name: "Clínica/Hospital5", specialty: "Psicologia/Fisioterapia", distance: "6km", assessment: 4}];
 
     return (
-        <Box sx={{
-        width: "100%",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center"}}>
+        <Box sx={style.mainPageBodyStyle}>
             <Tabs value={0}
             sx={{width: "85%"}}
             scrollButtons="auto"
@@ -29,13 +25,13 @@ export default function Main() {
                 <Tab icon={<Favorite />} label="Cardiologia" />
                 <Tab icon={<Favorite />} label="Cardiologia" />
             </Tabs>
-            <Box sx={{width: "100%", height: "1px", backgroundColor:"#00000030"}}></Box>
-            <Box sx= {{width: "85%", marginTop: "30px", display: "flex", flexDirection: "column", gap: "10px"}}>
+            <Box sx={style.horizontalLine}></Box>
+            <Box sx= {style.contentBoxStyle}>
                 {clinics.map(infos => 
-                    <Box >
-                        <Box sx= {{width: "100%", height: "80px", display: "flex", alignItems: "center", justifyContent: "space-between", paddingLeft: "15px", paddingRight: "15px"}}>
-                            <Box sx={{display: "flex", flexDirection: "column"}}>
-                                <Typography sx={{fontSize: "20px", fontStyle: "bold", marginBottom: "5px"}}>{infos.name}</Typography>
+                    <Box key = {infos.id}>
+                        <Box sx= {style.contentStyle}>
+                            <Box sx={{...style.flexColumn, width: "100px"}}>
+                                <Typography sx={style.titleContent}>{infos.name}</Typography>
                                 <Typography sx={{fontSize:"13px"}}>Especialidade(s): {infos.specialty}</Typography>
                             </Box>
                             <Box>
@@ -43,7 +39,7 @@ export default function Main() {
                                 <Typography>Avaliação: {infos.assessment}/5</Typography>
                             </Box>
                         </Box>
-                            <Box sx={{width: "100%", height: "1px", backgroundColor:"#00000030"}}></Box>
+                            <Box sx={style.horizontalLine}></Box>
                     </Box>
                 )}
             </Box>

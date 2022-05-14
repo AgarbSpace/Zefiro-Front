@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import logo from "../assets/logo/logo_size.jpg";
 import { Link as RouterLink } from "react-router-dom";
+import * as style from "../MUI-SX/index"
 
 export default function SignUp() {
     return (
@@ -93,13 +94,13 @@ export default function SignUp() {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        sx={{ mt: 3, mb: 2, backgroundColor: '#0F445D' }}
+                        sx={style.signInButtonStyle}
                     >
                         Cadastrar
                     </Button>
                     <Grid container justifyContent="flex-end">
                         <Grid item>
-                            <Link sx={{color: "#2E9AB4"}} component={RouterLink} to="/">
+                            <Link sx={{color: "#0F445D"}} component={RouterLink} to="/">
                                 Já tem uma conta? Entre!
                             </Link>
                         </Grid>
