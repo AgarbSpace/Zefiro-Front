@@ -10,11 +10,13 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 export default function Clinic(){
     const clinic = {id: 1 , name: "Clínica/Hospital0",specialty: "Psicologia", distance: "1km", assessment: 4, image: "https://www.psicologosberrini.com.br/wp-content/uploads/cropped-consultorio-psicologa-1-1024x576.jpg"};
     const navigate = useNavigate();
-    const matches = useMediaQuery('(min-width:600px)');
+    const matches = useMediaQuery('(min-width:700px)');
+    const matchesContentWidth = useMediaQuery('(min-width:1400px)');
     let titleFont = {};
     let specialtyFont = {};
     let adreessFont = {};
-    let imgWidth = "30%";
+    let imgWidth = "260px";
+    let contentWidth = "55%"
 
     if(matches === false){
         titleFont = {
@@ -30,6 +32,10 @@ export default function Clinic(){
         
         imgWidth = "50%"
     }
+
+    if(matchesContentWidth === false){
+        contentWidth="85%";
+    }
     
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
@@ -37,7 +43,7 @@ export default function Clinic(){
 
     return (
         <Box sx={style.mainPageBodyStyle}>
-            <Box sx={{...style.contentBoxStyle, border: "1px solid #00000030", height:"500px", paddingLeft:"15px", paddingTop:"15px", paddingRight:"15px"}}>
+            <Box sx={{...style.contentBoxStyle, width: contentWidth,border: "1px solid #00000030", height:"520px", paddingLeft:"15px", paddingTop:"15px", paddingRight:"15px"}}>
                 <Box sx={{width:"100%", height:"150px", display: "flex"}}>
                     <img src={clinic.image} width={imgWidth} height="100%"/>
                     <Box>
@@ -66,7 +72,7 @@ export default function Clinic(){
                         <Typography sx={{marginTop: "10px"}}>Valor: R$150,00</Typography>
                         <Button
                             onClick={() => navigate("/app/payment")}
-                            sx={style.signInButtonStyle}
+                            sx={{...style.signInButtonStyle, width: "117%"}}
                             variant="contained"
                             type="submit">
                             Confirmar Consulta
