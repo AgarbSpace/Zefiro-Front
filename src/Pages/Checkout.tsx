@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Review from '../components/Review/Review';
 import * as style from "../MUI-SX/index"
+import { useNavigate } from 'react-router-dom';
 
 const steps = ['Revisão da solicitação'];
 
@@ -27,6 +28,7 @@ const theme = createTheme();
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
+  const navigate = useNavigate();
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -60,6 +62,7 @@ export default function Checkout() {
                 <Typography variant="subtitle1">
                   Seu número de solicitação é #2001539. Enviamos um email com todos os dados
                 </Typography>
+                <Button variant="contained" onClick={() => navigate("/app/main")} sx={{...style.signInButtonStyle, color: "#FFFFFF"}}>Voltar para o início</Button>
               </React.Fragment>
             ) : (
               <React.Fragment>
@@ -73,7 +76,7 @@ export default function Checkout() {
                   <Button
                     variant="contained"
                     onClick={handleNext}
-                    sx={{ mt: 3, ml: 1 }}
+                    sx={style.signInButtonStyle}
                   >
                     {activeStep === steps.length - 1 ? 'Confirmar' : 'Próximo'}
                   </Button>

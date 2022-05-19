@@ -36,7 +36,13 @@ const flexColumn = {
 const titleContent = {
     fontSize: "20px", 
     fontStyle: "bold", 
-    marginBottom: "5px"
+    marginBottom: "5px",
+    textDecoration: "underline",
+    color: "#2E9AB4",
+    '&:hover': {
+        cursor: "pointer",
+        color: '#0F445D'
+    }
 }
 
 const flexEnd = {
@@ -47,7 +53,11 @@ const flexEnd = {
 const signInButtonStyle = { 
     mt: 3, 
     mb: 2,
-    backgroundColor: '#0F445D' }
+    backgroundColor: '#0F445D',
+    '&:hover': {
+        cursor: "pointer",
+        backgroundColor: '#2E99B3'
+    } }
 
 export {
     mainPageBodyStyle,

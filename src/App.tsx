@@ -10,6 +10,8 @@ import SignIn from './Pages/SignIn'
 import Checkout from './Pages/Checkout';
 import MainPage from './components/MainPage/MainPage';
 import Main from './Pages/Main';
+import Clinic from './Pages/Clinic';
+import PaymentInfo from './Pages/PaymentInfo';
 
 function App() {
   const theme = createTheme({
@@ -31,6 +33,8 @@ function App() {
               <Route path="app" element={<MainPage />}>
                 <Route path="/app/checkout" element={<Checkout />} />
                 <Route path= "/app/main" element={<Main />} />
+                <Route path="/app/clinic" element={<Clinic />}/>
+                <Route path="/app/payment" element={<PaymentInfo />}/>
               </Route>
             </Routes>
           </BrowserRouter>

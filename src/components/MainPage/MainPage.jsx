@@ -2,9 +2,11 @@ import { AppBar, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { ReactComponent as SignOutIcon} from '../../assets/signout.svg'
 import logo from '../../assets/logo/logo_size.jpg'
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 export default function MainPage(){
+    const navigate = useNavigate()
+
     return (
         <Box sx={{display: "flex", flexDirection: "column"}}>
             <AppBar
@@ -23,7 +25,7 @@ export default function MainPage(){
                 Zéfiro
             </Typography>
             </Box>
-            <SignOutIcon style={{cursor: "pointer"}}/>
+            <SignOutIcon onClick={() => navigate("/")} style={{cursor: "pointer"}}/>
             </Toolbar>
         </AppBar>
         <Outlet />
