@@ -4,11 +4,33 @@ import { useNavigate } from "react-router-dom";
 import DatePickers from "../components/DatePicker/DatePicker";
 import Form from "../components/Form";
 import * as style from "../MUI-SX/index"
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 export default function Clinic(){
     const clinic = {id: 1 , name: "Clínica/Hospital0",specialty: "Psicologia", distance: "1km", assessment: 4, image: "https://www.psicologosberrini.com.br/wp-content/uploads/cropped-consultorio-psicologa-1-1024x576.jpg"};
     const navigate = useNavigate();
+    const matches = useMediaQuery('(min-width:600px)');
+    let titleFont = {};
+    let specialtyFont = {};
+    let adreessFont = {};
+    let imgWidth = "30%";
 
+    if(matches === false){
+        titleFont = {
+            fontSize: "20px", 
+            fontStyle: "bold"
+        }
+        specialtyFont = {
+            fontSize: "15px"
+        }
+        adreessFont = {
+            fontSize: "13px"
+        }
+        
+        imgWidth = "50%"
+    }
+    
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
     }
@@ -17,11 +39,11 @@ export default function Clinic(){
         <Box sx={style.mainPageBodyStyle}>
             <Box sx={{...style.contentBoxStyle, border: "1px solid #00000030", height:"500px", paddingLeft:"15px", paddingTop:"15px", paddingRight:"15px"}}>
                 <Box sx={{width:"100%", height:"150px", display: "flex"}}>
-                    <img src={clinic.image} width="30%" height="100%"/>
+                    <img src={clinic.image} width={imgWidth} height="100%"/>
                     <Box>
-                        <Typography variant="h4" sx={{color: "#0F445D", marginLeft:"40px"}}>{clinic.name}</Typography>
-                        <Typography variant="h6" sx={{marginLeft:"40px"}}>Especialidade(s): {clinic.specialty}</Typography>
-                        <Typography sx={{marginLeft:"40px"}}>Endereço: Algum lugar</Typography>
+                        <Typography variant="h4" sx={{color: "#0F445D", marginLeft:"40px", ...titleFont}}>{clinic.name}</Typography>
+                        <Typography variant="h6" sx={{marginLeft:"40px", ...specialtyFont}}>Especialidade(s): {clinic.specialty}</Typography>
+                        <Typography sx={{marginLeft:"40px", ...adreessFont}}>Endereço: Algum lugar</Typography>
                     </Box>
                 </Box>
                 <Box sx={style.horizontalLine}></Box>
@@ -37,7 +59,7 @@ export default function Clinic(){
                                 name="hours"
                                 type="text"
                                 variant="outlined"
-                                sx={{width: "30%"}}
+                                sx={{width: "40%"}}
                             >
                             </Select>
                         </FormControl>
