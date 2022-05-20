@@ -12,6 +12,8 @@ import MainPage from './components/MainPage/MainPage';
 import Main from './Pages/Main';
 import Clinic from './Pages/Clinic';
 import PaymentInfo from './Pages/PaymentInfo';
+import ClinicSignIn from './Pages/ClinicSignIn';
+import ClinicSignUp from './Pages/clinicSignUp';
 
 function App() {
   const theme = createTheme({
@@ -29,6 +31,8 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<SignIn />} />
+              <Route path= "/clinicSignIn" element={<ClinicSignIn />}/>
+              <Route path= "/clinicSignUp" element={<ClinicSignUp />}/>
               <Route path="/signUp" element={<SignUp />} />
               <Route path="app" element={<MainPage />}>
                 <Route path="/app/checkout" element={<Checkout />} />

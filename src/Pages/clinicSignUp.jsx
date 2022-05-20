@@ -8,12 +8,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import logo from "../assets/logo/logo_size.jpg";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import * as style from "../MUI-SX/index"
 
-export default function SignIn() {
-    const navigate = useNavigate()
-
+export default function ClinicSignUp() {
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -35,16 +33,37 @@ export default function SignIn() {
                 </Typography>
                 <img src={logo} alt = "logo"/>
                 <Typography component="h1" variant="h6">
-                    Entrar
+                    Cadastro
                 </Typography>
                 <Box component="form" noValidate sx={{ mt: 3 }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
+                                autoComplete="given-name"
+                                name="name"
+                                required
+                                fullWidth
+                                id="name"
+                                label="Name"
+                                autoFocus
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                required
+                                fullWidth
+                                id="cnpj"
+                                label="CNPJ"
+                                name="cnpj"
+                                autoComplete="cnpj"
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
                                 required
                                 fullWidth
                                 id="email"
-                                label="Email"
+                                label="Email Coorporativo"
                                 name="email"
                                 autoComplete="email"
                             />
@@ -60,25 +79,29 @@ export default function SignIn() {
                                 autoComplete="new-password"
                             />
                         </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                required
+                                fullWidth
+                                name="confirmPassword"
+                                label="Confirmar Senha"
+                                type="password"
+                                id="confirmPassword"
+                            />
+                        </Grid>
                     </Grid>
                     <Button
                         type="submit"
                         fullWidth
                         variant="contained"
                         sx={style.signInButtonStyle}
-                        onClick = {() => navigate("/app/main")}
                     >
-                        Entrar
+                        Cadastrar
                     </Button>
                     <Grid container justifyContent="flex-end">
                         <Grid item>
-                            <Link sx={{color: "#0F445D"}} component={RouterLink} to="/signUp">
-                                Não tem uma conta? Cadastre-se!
-                            </Link>
-                        </Grid>
-                        <Grid item>
-                            <Link sx={{color: "#0F445D"}} component={RouterLink} to="/clinicSignIn">
-                                Entre como empresa
+                            <Link sx={{color: "#0F445D"}} component={RouterLink} to="/">
+                                Já tem uma conta? Entre!
                             </Link>
                         </Grid>
                     </Grid>

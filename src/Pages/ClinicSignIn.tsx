@@ -11,7 +11,7 @@ import logo from "../assets/logo/logo_size.jpg";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import * as style from "../MUI-SX/index"
 
-export default function SignIn() {
+export default function ClinicSignIn() {
     const navigate = useNavigate()
 
     return (
@@ -44,7 +44,7 @@ export default function SignIn() {
                                 required
                                 fullWidth
                                 id="email"
-                                label="Email"
+                                label="Email Coorporativo"
                                 name="email"
                                 autoComplete="email"
                             />
@@ -72,13 +72,13 @@ export default function SignIn() {
                     </Button>
                     <Grid container justifyContent="flex-end">
                         <Grid item>
-                            <Link sx={{color: "#0F445D"}} component={RouterLink} to="/signUp">
-                                Não tem uma conta? Cadastre-se!
+                            <Link sx={{color: "#0F445D"}} component={RouterLink} to="/clinicSignUp">
+                                Não tem uma conta? Cadastre sua empresa aqui!
                             </Link>
                         </Grid>
                         <Grid item>
-                            <Link sx={{color: "#0F445D"}} component={RouterLink} to="/clinicSignIn">
-                                Entre como empresa
+                            <Link sx={{color: "#0F445D"}} component={RouterLink} to="/">
+                                Voltar para login como pessoa física
                             </Link>
                         </Grid>
                     </Grid>
