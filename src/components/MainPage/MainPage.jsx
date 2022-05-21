@@ -19,12 +19,13 @@ export default function MainPage(){
             }}
         >
             <Toolbar sx={{display: "flex", justifyContent: "space-between"}}>
-                <Box component="div" sx={{display: "flex", alignItems: "center"}}>
-                <img src={logo} alt="logo" width="50px" height="50px"/>
-            <Typography sx={{fontFamily: "Zen Loop", fontSize: "50px", marginLeft: "20px"}} variant="h6" color="inherit" noWrap>
-                Zéfiro
-            </Typography>
-            </Box>
+                <Box component="div" sx={{display: "flex", alignItems: "center", '&:hover': {cursor: "pointer",}}} 
+                    onClick={() => navigate("/app/main")}>
+                    <img src={logo} alt="logo" width="50px" height="50px"/>
+                    <Typography sx={{fontFamily: "Zen Loop", fontSize: "50px", marginLeft: "20px"}} variant="h6" color="inherit" noWrap>
+                        Zéfiro
+                    </Typography>
+                </Box>
             <SignOutIcon onClick={() => navigate("/")} style={{cursor: "pointer"}}/>
             </Toolbar>
         </AppBar>

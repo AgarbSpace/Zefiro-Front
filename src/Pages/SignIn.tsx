@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import logo from "../assets/logo/logo_size.jpg";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import * as style from "../MUI-SX/index"
+import Copyright from '../components/Copyright/Copyright';
 
 export default function SignIn() {
     const navigate = useNavigate()
@@ -76,7 +77,7 @@ export default function SignIn() {
                                 Não tem uma conta? Cadastre-se!
                             </Link>
                         </Grid>
-                        <Grid item>
+                        <Grid item sx={{ marginBottom: "50px"}}>
                             <Link sx={{color: "#0F445D"}} component={RouterLink} to="/clinicSignIn">
                                 Entre como empresa
                             </Link>
@@ -84,6 +85,7 @@ export default function SignIn() {
                     </Grid>
                 </Box>
             </Box>
+            <Copyright />
         </Container>
     );
 }

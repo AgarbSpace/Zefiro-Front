@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import logo from "../assets/logo/logo_size.jpg";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import * as style from "../MUI-SX/index"
+import Copyright from '../components/Copyright/Copyright';
 
 export default function PaymentInfo() {
     const navigate = useNavigate()
@@ -23,12 +24,13 @@ export default function PaymentInfo() {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    
                 }}
             >
-                <Typography component="h1" sx={{marginBottom: "10%"}} variant="h6">
+                <Typography component="h1" variant="h6">
                     Informações do pagamento
                 </Typography>
-                <Box component="form" noValidate sx={{ mt: 3 }}>
+                <Box component="form" noValidate sx={{ marginTop: "15px", border: "1px solid #00000030", paddingLeft:"15px", paddingTop:"15px", paddingRight:"15px", paddingBottom: "15px", marginBottom: "5px" }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
@@ -62,7 +64,7 @@ export default function PaymentInfo() {
                                     id="expiration"
                                 />
                             </Grid>
-                            <Grid item xs={5}>
+                            <Grid item xs={5} >
                                 <TextField
                                     required
                                     fullWidth
@@ -79,13 +81,21 @@ export default function PaymentInfo() {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        sx={style.signInButtonStyle}
+                        sx={{...style.signInButtonStyle, marginBottom: "0px"}}
                         onClick = {() => navigate("/app/checkout")}
                     >
                         Continuar
                     </Button>
+                <Button
+                    onClick={() => navigate("/app/main")}
+                    sx={{...style.signInButtonStyle, width: "100%", marginBottom: "0px"}}
+                    variant="contained"
+                    type="submit">
+                    Voltar
+                </Button>
                 </Box>
             </Box>
+            <Copyright />
         </Container>
     );
 }

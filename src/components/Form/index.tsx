@@ -1,4 +1,5 @@
-import { Box, SxProps } from "@mui/system";
+import Box from '@mui/material/Box'
+import { SxProps } from "@mui/material";
 
 const styles: SxProps = {
   display: "flex",

@@ -1,8 +1,10 @@
-import { Tab, Tabs, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Tab, Tabs, Typography, useIsFocusVisible } from "@mui/material";
+import Box from '@mui/material/Box'
 import { Boy, Psychology, TagFaces, ContentPasteSearch, MenuBook, Favorite, AllInclusive} from '@mui/icons-material';
 import * as style from "../MUI-SX/index"
 import { useNavigate } from "react-router-dom";
+import Copyright from "../components/Copyright/Copyright";
+import { useState } from "react";
 
 export default function Main() {
     const clinics = [{id: 1 , name: "Clínica/Hospital0",specialty: "Psicologia", distance: "1km", assessment: 4},
@@ -12,24 +14,43 @@ export default function Main() {
     {id: 5 ,name: "Clínica/Hospital4", specialty: "Clínica Geral", distance: "5km", assessment: 2},
     {id: 6 ,name: "Clínica/Hospital5", specialty: "Psicologia/Fisioterapia", distance: "6km", assessment: 4}];
     const navigate = useNavigate()
+    const [clinic, setClinic] = useState(clinics);
+    const [value, setValue] = useState(0)
+
+    function handleClick(e:any){
+        const specialty = e.target.textContent;
+        if(specialty === "Todos"){
+            setClinic(clinics);
+            return;
+        }
+        const filteredClinics = clinics.filter((clinic) => {return clinic.specialty.indexOf(specialty) > -1});
+        console.log(filteredClinics);
+        setClinic(filteredClinics);
+    }
+
+    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        setValue(newValue);
+    };
 
     return (
         <Box sx={style.mainPageBodyStyle}>
-            <Tabs value={0}
+            <Tabs value={value}
+            onChange={handleChange}
             sx={{width: "85%"}}
             scrollButtons="auto"
             variant="scrollable">
-                <Tab icon={<AllInclusive />} label="Todos" />
-                <Tab icon={<ContentPasteSearch />} label="Clínica Geral" />
-                <Tab icon={<TagFaces />} label="Odontologia" />
-                <Tab icon={<Psychology />} label="Psicologia" />
-                <Tab icon={<Boy />} label="Fisioterapia" />
-                <Tab icon={<MenuBook />} label="Nutrição" />
-                <Tab icon={<Favorite />} label="Cardiologia" />
+                <Tab icon={<AllInclusive />} label="Todos" onClick={handleClick}/>
+                <Tab icon={<ContentPasteSearch />} label="Clínica Geral" onClick={handleClick}/>
+                <Tab icon={<TagFaces />} label="Odontologia" onClick={handleClick}/>
+                <Tab icon={<Psychology />} label="Psicologia" onClick={handleClick}/>
+                <Tab icon={<Boy />} label="Fisioterapia" onClick={handleClick}/>
+                <Tab icon={<MenuBook />} label="Nutrição" onClick={handleClick}/>
+                <Tab icon={<Favorite />} label="Cardiologia" onClick={handleClick}/>
+                <Tab icon={<Favorite />} label="Cardiologiadsdasdsa" onClick={handleClick}/>
             </Tabs>
             <Box sx={style.horizontalLine}></Box>
-            <Box sx= {style.contentBoxStyle}>
-                {clinics.map(infos => 
+            {clinic.length > 0 ? <Box sx= {{...style.contentBoxStyle, marginBottom: "50px"}}>
+                {clinic.map(infos => 
                     <Box key = {infos.id}>
                         <Box sx= {style.contentStyle}>
                             <Box sx={{...style.flexColumn, width: "100px"}}>
@@ -44,7 +65,11 @@ export default function Main() {
                             <Box sx={style.horizontalLine}></Box>
                     </Box>
                 )}
-            </Box>
+            </Box>: <Box sx={style.mainPageBodyStyle}>
+                <Typography sx={{marginTop: "50px", marginBottom:"50px"}}>Ainda não há clínicas registradas nesta especialidade!</Typography>
+                <Copyright />
+            </Box>}
+            <Copyright />
         </Box>
     )
 }

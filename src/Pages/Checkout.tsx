@@ -12,6 +12,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Review from '../components/Review/Review';
 import * as style from "../MUI-SX/index"
 import { useNavigate } from 'react-router-dom';
+import Copyright from '../components/Copyright/Copyright';
 
 const steps = ['Revisão da solicitação'];
 
@@ -85,6 +86,7 @@ export default function Checkout() {
             )}
           </React.Fragment>
         </Paper>
+        <Copyright/>
       </Container>
     </ThemeProvider>
   );

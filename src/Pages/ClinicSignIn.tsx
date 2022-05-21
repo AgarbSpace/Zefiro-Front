@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import logo from "../assets/logo/logo_size.jpg";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import * as style from "../MUI-SX/index"
+import Copyright from '../components/Copyright/Copyright';
 
 export default function ClinicSignIn() {
     const navigate = useNavigate()
@@ -76,7 +77,7 @@ export default function ClinicSignIn() {
                                 Não tem uma conta? Cadastre sua empresa aqui!
                             </Link>
                         </Grid>
-                        <Grid item>
+                        <Grid item sx={{marginBottom: "50px"}}>
                             <Link sx={{color: "#0F445D"}} component={RouterLink} to="/">
                                 Voltar para login como pessoa física
                             </Link>
@@ -84,6 +85,7 @@ export default function ClinicSignIn() {
                     </Grid>
                 </Box>
             </Box>
+            <Copyright />
         </Container>
     );
 }

@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import logo from "../assets/logo/logo_size.jpg";
 import { Link as RouterLink } from "react-router-dom";
 import * as style from "../MUI-SX/index"
+import Copyright from '../components/Copyright/Copyright';
 
 export default function ClinicSignUp() {
     return (
@@ -99,7 +100,7 @@ export default function ClinicSignUp() {
                         Cadastrar
                     </Button>
                     <Grid container justifyContent="flex-end">
-                        <Grid item>
+                        <Grid item sx={{marginBottom: "50px"}}>
                             <Link sx={{color: "#0F445D"}} component={RouterLink} to="/">
                                 Já tem uma conta? Entre!
                             </Link>
@@ -107,6 +108,7 @@ export default function ClinicSignUp() {
                     </Grid>
                 </Box>
             </Box>
+            <Copyright />
         </Container>
     );
 }
