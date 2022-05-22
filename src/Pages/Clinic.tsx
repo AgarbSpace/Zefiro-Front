@@ -1,4 +1,4 @@
-import { Button, FormControl, InputLabel, Select, TextField, Typography } from "@mui/material";
+import { Button, FormControl, InputLabel, Select, Typography } from "@mui/material";
 import Box from '@mui/material/Box'
 import { useNavigate } from "react-router-dom";
 import Form from "../components/Form";
@@ -8,8 +8,7 @@ import Map from "../components/Map/Map";
 import DatePickers from "../components/DatePicker/DatePicker";
 import Copyright from "../components/Copyright/Copyright";
 
-export default function Clinic(){
-    const clinic = {id: 1 , name: "Clínica/Hospital0",specialty: "Psicologia", distance: "1km", assessment: 4, image: "https://www.psicologosberrini.com.br/wp-content/uploads/cropped-consultorio-psicologa-1-1024x576.jpg"};
+export default function Clinic({clinicInfo}:any){
     const navigate = useNavigate();
     const matches = useMediaQuery('(min-width:700px)');
     const mapMatches = useMediaQuery('(min-width:900px)');
@@ -60,10 +59,10 @@ export default function Clinic(){
         <Box sx={style.mainPageBodyStyle}>
             <Box sx={{...style.contentBoxStyle, width: contentWidth, border: "1px solid #00000030", paddingLeft:"15px", paddingTop:"15px", paddingRight:"15px", paddingBottom: "15px", marginBottom: "5px"}}>
                 <Box sx={{width:"100%", height:"150px", display: "flex"}}>
-                    <img src={clinic.image} width={imgWidth} height="100%"/>
+                    <img src={clinicInfo[0].image} width={imgWidth} height="100%" alt="Clinic"/>
                     <Box>
-                        <Typography variant="h4" sx={{color: "#0F445D", marginLeft:"40px", ...titleFont}}>{clinic.name}</Typography>
-                        <Typography variant="h6" sx={{marginLeft:"40px", ...specialtyFont}}>Especialidade(s): {clinic.specialty}</Typography>
+                        <Typography variant="h4" sx={{color: "#0F445D", marginLeft:"40px", ...titleFont}}>{clinicInfo[0].name}</Typography>
+                        <Typography variant="h6" sx={{marginLeft:"40px", ...specialtyFont}}>Especialidade(s): {clinicInfo[0].specialty}</Typography>
                         <Typography sx={{marginLeft:"40px", ...adreessFont}}>Endereço: Algum lugar</Typography>
                     </Box>
                 </Box>
@@ -94,7 +93,7 @@ export default function Clinic(){
                             </Button>
                         </Form>
                             <Button
-                                onClick={() => navigate("/app/main")}
+                                onClick={() => document.location.reload()}
                                 sx={{...style.signInButtonStyle}}
                                 variant="contained"
                                 type="submit">

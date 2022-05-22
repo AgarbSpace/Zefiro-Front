@@ -37,7 +37,7 @@ function App() {
               <Route path="app" element={<MainPage />}>
                 <Route path="/app/checkout" element={<Checkout />} />
                 <Route path= "/app/main" element={<Main />} />
-                <Route path="/app/clinic" element={<Clinic />}/>
+                <Route path="/app/:id" element={<Clinic />}/>
                 <Route path="/app/payment" element={<PaymentInfo />}/>
               </Route>
             </Routes>

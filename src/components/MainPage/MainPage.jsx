@@ -2,10 +2,22 @@ import { AppBar, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { ReactComponent as SignOutIcon} from '../../assets/signout.svg'
 import logo from '../../assets/logo/logo_size.jpg'
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate, Navigate } from 'react-router-dom';
+import TemporaryDrawer from '../LateralMenu/LateralMenu';
+import useAuth from '../../hooks/useAuth'
 
 export default function MainPage(){
     const navigate = useNavigate()
+    const {token, signOut} = useAuth()
+
+    if(!token){
+        return <Navigate to = "/" replace/>
+    }
+
+    function handleSignOut(){
+        navigate("/");
+        signOut();
+    }
 
     return (
         <Box sx={{display: "flex", flexDirection: "column"}}>
@@ -19,6 +31,7 @@ export default function MainPage(){
             }}
         >
             <Toolbar sx={{display: "flex", justifyContent: "space-between"}}>
+                <TemporaryDrawer />
                 <Box component="div" sx={{display: "flex", alignItems: "center", '&:hover': {cursor: "pointer",}}} 
                     onClick={() => navigate("/app/main")}>
                     <img src={logo} alt="logo" width="50px" height="50px"/>
@@ -26,7 +39,7 @@ export default function MainPage(){
                         Zéfiro
                     </Typography>
                 </Box>
-            <SignOutIcon onClick={() => navigate("/")} style={{cursor: "pointer"}}/>
+            <SignOutIcon onClick={handleSignOut} style={{cursor: "pointer"}}/>
             </Toolbar>
         </AppBar>
         <Outlet />

@@ -12,7 +12,7 @@ const products = [
     price: 'preço',
   }
 ];
-const addresses = ['1 MUI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+
 const payments = [
   { name: 'Bandeira do cartão', detail: 'MasterCard' },
   { name: 'Nome no cartao', detail: 'Fulano de tal' },
