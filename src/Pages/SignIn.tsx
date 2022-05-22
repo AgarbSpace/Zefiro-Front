@@ -97,6 +97,7 @@ export default function SignIn() {
                         </Grid>
                     </Grid>
                     <Button
+                        id='submitLogin'
                         type="submit"
                         fullWidth
                         variant="contained"

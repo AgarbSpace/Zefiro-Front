@@ -76,6 +76,7 @@ export default function PaymentInfo() {
                         </Box>
                     </Grid>
                     <Button
+                        id="submitButton"
                         type="submit"
                         fullWidth
                         variant="contained"

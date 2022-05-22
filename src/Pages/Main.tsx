@@ -60,14 +60,14 @@ export default function Main() {
             sx={{width: "85%"}}
             scrollButtons="auto"
             variant="scrollable">
-                <Tab icon={<AllInclusive />} label="Todos" onClick={handleClick}/>
-                <Tab icon={<ContentPasteSearch />} label="Clínica Geral" onClick={handleClick}/>
-                <Tab icon={<TagFaces />} label="Odontologia" onClick={handleClick}/>
-                <Tab icon={<Psychology />} label="Psicologia" onClick={handleClick}/>
-                <Tab icon={<Boy />} label="Fisioterapia" onClick={handleClick}/>
-                <Tab icon={<MenuBook />} label="Nutrição" onClick={handleClick}/>
-                <Tab icon={<Favorite />} label="Cardiologia" onClick={handleClick}/>
-                <Tab icon={<Error/>} label="Não tem" onClick={handleClick}/>
+                <Tab icon={<AllInclusive />} label="Todos" id="all" onClick={handleClick}/>
+                <Tab icon={<ContentPasteSearch />} label="Clínica Geral" id="geralClinic" onClick={handleClick}/>
+                <Tab icon={<TagFaces />} label="Odontologia" id="odontology" onClick={handleClick}/>
+                <Tab icon={<Psychology />} label="Psicologia" id="psychology" onClick={handleClick}/>
+                <Tab icon={<Boy />} label="Fisioterapia" id="physiotherapy" onClick={handleClick}/>
+                <Tab icon={<MenuBook />} label="Nutrição" id="nutrition" onClick={handleClick}/>
+                <Tab icon={<Favorite />} label="Cardiologia" id="cardiology" onClick={handleClick}/>
+                <Tab icon={<Error/>} label="Não tem" id="noClinic" onClick={handleClick}/>
             </Tabs>
             <Box sx={style.horizontalLine}></Box>
             {clinic.length > 0 ? <Box sx= {{...style.contentBoxStyle, marginBottom: "50px"}}>

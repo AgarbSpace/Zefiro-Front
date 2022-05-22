@@ -39,7 +39,7 @@ export default function MainPage(){
                         Zéfiro
                     </Typography>
                 </Box>
-            <SignOutIcon onClick={handleSignOut} style={{cursor: "pointer"}}/>
+            <SignOutIcon id="signOutButton" onClick={handleSignOut} style={{cursor: "pointer"}}/>
             </Toolbar>
         </AppBar>
         <Outlet />

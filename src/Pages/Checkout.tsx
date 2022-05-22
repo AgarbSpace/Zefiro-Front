@@ -63,7 +63,7 @@ export default function Checkout() {
                 <Typography variant="subtitle1">
                   Seu número de solicitação é #2001539. Enviamos um email com todos os dados
                 </Typography>
-                <Button variant="contained" onClick={() => navigate("/app/main")} sx={{...style.signInButtonStyle, color: "#FFFFFF"}}>Voltar para o início</Button>
+                <Button id="backToHome" variant="contained" onClick={() => navigate("/app/main")} sx={{...style.signInButtonStyle, color: "#FFFFFF"}}>Voltar para o início</Button>
               </React.Fragment>
             ) : (
               <React.Fragment>
@@ -75,6 +75,7 @@ export default function Checkout() {
                     </Button>
                   )}
                   <Button
+                    id="submitButton"
                     variant="contained"
                     onClick={handleNext}
                     sx={style.signInButtonStyle}

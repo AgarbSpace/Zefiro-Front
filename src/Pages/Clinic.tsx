@@ -85,6 +85,7 @@ export default function Clinic({clinicInfo}:any){
                             </FormControl>
                             <Typography sx={{marginTop: "10px"}}>Valor: R$150,00</Typography>
                             <Button
+                                id="submitButton"
                                 onClick={() => navigate("/app/payment")}
                                 sx={{...style.signInButtonStyle, marginBottom: "0px"}}
                                 variant="contained"
